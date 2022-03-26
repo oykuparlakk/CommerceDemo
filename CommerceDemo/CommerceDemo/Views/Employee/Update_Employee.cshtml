@@ -1,0 +1,34 @@
+﻿@model CommerceDemo.Models.Classes.Employee
+@{
+    ViewBag.Title = "Update_Employee";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Employee Update</h2>
+<br />
+@using (Html.BeginForm("Update_Post_Employee", "Employee", FormMethod.Post))
+{
+<div class="form-group">
+
+    @Html.HiddenFor(x => x.Id)
+
+    @Html.LabelFor(x => x.EmployeeName)
+    @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.EmployeeImage)
+    @Html.TextBoxFor(x => x.EmployeeImage, new { @class = "form-control" })
+
+    <br />
+    @Html.LabelFor(x => x.Department)
+    @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.employees_department, new { @class = "form-control" })
+
+
+</div>
+    <br />
+
+    <button class="btn btn-default" style="background-color:yellowgreen">Update</button>
+
+}
+
+

@@ -1,0 +1,28 @@
+﻿@using CommerceDemo.Models.Classes
+@model List<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+
+    <tr>
+        <th>Number</th>
+        <th>Category Name</th>
+    </tr>
+    @{int i = 1;}
+    @foreach (var category in Model)
+    {
+        <tr>
+            <td>@i @{i++;}</td>
+            <td>@category.CategoryName</td>
+            <td><a href="/Category/Destroy_Category/@category.Id" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Category/Update_Category/@category.Id" class="btn btn-success">Update</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="/Category/Add_Category" class="btn btn-primary">Add Category</a>
+

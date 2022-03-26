@@ -1,0 +1,47 @@
+﻿@using CommerceDemo.Models.Classes
+@model List<Invoice>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Invoices</h2>
+<br />
+<table class="table table-bordered" style="margin-top:20px">
+
+    <tr>
+        <th>Number</th>
+        <th>Serial No</th>
+        <th>Order No</th>
+        <th>Tax Administration</th>
+        <th>Date</th>
+        <th>Hour</th>
+        <th>Submitter</th>
+        <th>Receiver</th>
+        <th>Total</th>
+        <th>Details</th>
+        <th>Update</th>
+    </tr>
+    @{int i = 1;}
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@i @{i++;}</td>
+            <td>@x.InvoiceSerialNumber</td>
+            <td>@x.InvoiceOrderNumber</td>
+            <td>@x.TaxAdministration</td>
+            <td>@x.Date</td>
+            <td>@x.Hour</td>
+            <td>@x.Submitter</td>
+            <td>@x.Receiver</td>
+            <td>@x.Total</td>
+
+            <td><a href="/Invoice/Detail_Invoice/@x.Id" class="btn btn-warning">Detail</a></td>
+            <td><a href="/Invoice/Update_Invoice/@x.Id" class="btn btn-default" style="background-color:yellowgreen">Update</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="/Invoice/Add_Payment" class="btn btn-info">Add New Invoice</a>

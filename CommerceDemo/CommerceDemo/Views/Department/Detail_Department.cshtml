@@ -1,0 +1,37 @@
+﻿@using CommerceDemo.Models.Classes
+@model List<Employee>
+@{
+    ViewBag.Title = "Detail_Department";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Department Details</h2>
+<br />
+<h1 class="mt-4"></h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"><h4>@ViewBag.DepartmentName</h4></li>
+</ol>
+
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>Employee Number</th>
+        <th>Employee Name</th>
+        @*<th>Employee Image</th>*@
+        <th>Employee Sales Move</th>
+    </tr>
+
+    @{ int i = 1;}
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@i  @{i++;} </td>
+            <td>@x.EmployeeName</td>
+            @*<td>@x.EmployeeImage</td>*@
+            <td><a href="/Department/Department_Employee_SalesMove/@x.Id" class="btn btn-default" style="background-color:lightblue">Sales Move</a></td>
+        </tr>
+    }
+
+</table>
+

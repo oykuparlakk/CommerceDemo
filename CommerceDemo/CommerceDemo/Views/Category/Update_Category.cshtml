@@ -1,0 +1,23 @@
+﻿@model CommerceDemo.Models.Classes.Category
+@{
+    ViewBag.Title = "Update_Category";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Category Update</h2>
+<br />
+@using (Html.BeginForm("Update_Post_Category", "Category", FormMethod.Post))
+{
+<div class="form-group">
+
+    @Html.LabelFor(x => x.CategoryName)
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    @Html.HiddenFor(x => x.Id)
+
+</div>
+    <br />
+
+    <button class="btn btn-warning">Update</button>
+
+}

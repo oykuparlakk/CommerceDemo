@@ -1,0 +1,157 @@
+﻿@model IEnumerable<CommerceDemo.Models.Classes.CustomerAddress>
+@{
+    ViewBag.Title = "SimpleTables";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Progress Tables</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+     
+
+        <!-- Content Wrapper. Contains page content -->
+       
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Quick View Tables</h1>
+                        </div>
+                       
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <!-- /.card -->
+                            @Html.Action("Partial4", "Statistic")
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Employee Department Table</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                @Html.Action("Partial1", "Statistic")
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Consumer Address Table</h3>
+
+
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body p-0">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 10px">#</th>
+                                                <th>City</th>
+                                                <th>
+                                                    Percentage of Customer Density by City
+                                                </th>
+                                                <th style="width: 40px">Customer Number</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{ int number = 0;}
+                                            @{ int percentage = 0;}
+                                            @{ int allCustomers = 0;}
+
+                                            @foreach (var x in Model)
+                                            {
+                                                allCustomers += x.TotalNumber;
+
+                                            }
+
+                                            @foreach (var x in Model)
+                                            {
+                                                percentage = (x.TotalNumber * 100) / allCustomers;
+                                                <tr>
+                                                    <td>@{number++;} @number</td>
+                                                    <td>@x.City</td>
+
+                                                    <td>
+
+                                                        <div class="progress progress-xs">
+                                                            <div class="progress-bar bg-danger" style="width: @percentage%"></div>
+                                                        </div>
+
+                                                    </td>
+
+                                                    <td><span class="badge bg-danger">@x.TotalNumber</span></td>
+
+                                                </tr>
+
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                           
+                            <!-- /.card -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                    @Html.Action("Partial2", "Statistic")
+                    <!-- /.row -->
+                    @Html.Action("Partial3", "Statistic")
+                    <!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        
+       
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+</html>

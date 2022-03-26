@@ -1,0 +1,40 @@
+﻿@using CommerceDemo.Models.Classes
+@model List<SalesMove>
+@{
+    ViewBag.Title = "Department_Employee_SalesMove";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Department Employee Sales Move</h2>
+<br />
+<h1 class="mt-4"></h1>
+<ol class="breadcrumb mb-4">
+    <li><h4>@ViewBag.employee</h4></li>
+</ol>
+<table class="table table-condensed">
+    <tr>
+        <th>Sales Number</th>
+        <th>Product</th>
+        <th>Customer</th>
+        <th>Price</th>
+        <th>Total Count</th>
+        <th>Date</th>
+        <th>Print</th>
+    </tr>
+    @{ var i = 1;}
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@i @{i++;} </td>
+            <td>@x.Product.ProductName </td>
+            <td>@x.Customer.CustomerName </td>
+            <td>@x.Product.SalePrice </td>
+            <td>@x.Product.Stock </td>
+            <td>@x.Date</td>
+            <td><a href="#" class="btn btn-default" style="background-color:darkgray">Print</a></td>
+        </tr>
+    }
+
+
+</table>

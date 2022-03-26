@@ -1,0 +1,19 @@
+﻿@model CommerceDemo.Models.Classes.Category
+@{
+    ViewBag.Title = "Add_Category";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+<h2>Category</h2>
+<br />
+<h5>Add New Category</h5>
+
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.CategoryName)
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Save Changes</button>
+</form>
+

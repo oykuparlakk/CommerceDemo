@@ -1,0 +1,32 @@
+﻿@model CommerceDemo.Models.Classes.Customer
+@{
+    ViewBag.Title = "Update_Customer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Customer Update</h2>
+<br />
+@using (Html.BeginForm("Update_Post_Customer", "Customer", FormMethod.Post))
+{
+<div class="form-group">
+
+    @Html.LabelFor(x => x.CustomerName)
+    @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CustomerName, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.Address)
+    @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Address, "", new { @style = "color:red" })
+
+    <br />
+    @Html.LabelFor(x => x.Email)
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    @Html.HiddenFor(x => x.Id)
+
+</div>
+    <br />
+
+    <button class="btn btn-default" style="background-color:yellowgreen">Update</button>
+
+}

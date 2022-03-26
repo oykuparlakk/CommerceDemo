@@ -1,0 +1,20 @@
+﻿@model CommerceDemo.Models.Classes.Customer
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerPanelLayout.cshtml";
+}
+<br />
+<h2>Customer Information Panel</h2>
+<br/>
+@using (Html.BeginForm("Index2", "CustomerPanel"))
+{
+    <table>
+        <tr>
+            <td>
+                <label>
+                    Email address : @HttpContext.Current.User.Identity.Name
+                </label>
+            </td>
+        </tr>
+    </table>
+}

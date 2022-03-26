@@ -1,0 +1,39 @@
+﻿@model CommerceDemo.Models.Classes.Product
+@{
+    ViewBag.Title = "Update_Product";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Update Product</h2>
+
+@using (Html.BeginForm("Update_Post_Product", "Product", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Id)
+    @Html.LabelFor(x => x.ProductName)
+    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ProductBrand)
+    @Html.TextBoxFor(x => x.ProductBrand, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Stock)
+    @Html.TextBoxFor(x => x.Stock, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Cost)
+    @Html.TextBoxFor(x => x.Cost, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.SalePrice)
+    @Html.TextBoxFor(x => x.SalePrice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Category)
+     @Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.product, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ProductImage)
+    @Html.TextBoxFor(x => x.ProductImage, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Status)
+    @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-warning">Update</button>
+}

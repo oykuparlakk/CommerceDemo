@@ -1,0 +1,37 @@
+﻿@model CommerceDemo.Models.Classes.Invoice
+@{
+    ViewBag.Title = "Update_Invoince";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Update Bill of Invoice</h2>
+
+@using (Html.BeginForm("Update_Post_Invoice", "Invoice", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Id)
+    @Html.LabelFor(x => x.InvoiceSerialNumber)
+    @Html.TextBoxFor(x => x.InvoiceSerialNumber, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.InvoiceOrderNumber)
+    @Html.TextBoxFor(x => x.InvoiceOrderNumber, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TaxAdministration)
+    @Html.TextBoxFor(x => x.TaxAdministration, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Date)
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Hour)
+    @Html.TextBoxFor(x => x.Hour, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(x => x.Submitter)
+    @Html.TextBoxFor(x => x.Submitter, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Receiver)
+    @Html.TextBoxFor(x => x.Receiver, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-warning">Update</button>
+}

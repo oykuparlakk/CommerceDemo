@@ -1,0 +1,21 @@
+﻿@model CommerceDemo.Models.Classes.Customer
+@{
+    ViewBag.Title = "Add_Customer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Customer</h2>
+<br />
+<h5>Add New Customer</h5>
+
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.CustomerName)
+    @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+    @Html.LabelFor(x => x.Address)
+    @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+    @Html.LabelFor(x => x.Email)
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Save Changes</button>
+</form>

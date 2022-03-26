@@ -1,0 +1,43 @@
+﻿@model CommerceDemo.Models.Classes.SalesMove
+@{
+    ViewBag.Title = "Add_SalesMove";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Add New Sale</h2>
+<br />
+
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.Product)
+    @* @Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })*@
+    @Html.DropDownListFor(x => x.ProductId, (List<SelectListItem>)ViewBag.productList, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Customer)
+    @* @Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })*@
+    @Html.DropDownListFor(x => x.CustomerId, (List<SelectListItem>)ViewBag.customerList, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Employee)
+    @* @Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })*@
+    @Html.DropDownListFor(x => x.EmployeeId, (List<SelectListItem>)ViewBag.employeeList, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Amount)
+    @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Price)
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TotalPrice)
+    @Html.TextBoxFor(x => x.TotalPrice, new { @class = "form-control" })
+
+    <br />
+    @*@Html.LabelFor(x => x.Date)
+        @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })*@
+
+    <br />
+
+
+    <button class="btn btn-primary">Make a Sale</button>
+</form>
+
+

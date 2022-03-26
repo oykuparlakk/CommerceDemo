@@ -1,0 +1,41 @@
+﻿@using CommerceDemo.Models.Classes
+@model List<Employee>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Employees</h2>
+<br />
+<table class="table table-bordered" style="margin-top:20px">
+
+    <tr>
+        <th>Number</th>
+        <th>Employee Name</th>
+        <th>Employee Department</th>
+        <th>Employee Image</th>
+        <th>Update</th>
+        <th>Sales Move</th>
+    </tr>
+    @{int i = 1;}
+    @foreach (var employee in Model)
+    {
+        <tr>
+            <td>@i @{i++;}</td>
+            <td>@employee.EmployeeName</td>
+            <td>@employee.Department.Name</td>
+            <td >
+                <img src="@employee.EmployeeImage" style="width:150px; height:150px;"/>
+            </td>
+            
+            <td><a href="/Employee/Update_Employee/@employee.Id" class="btn btn-success">Update</a></td>
+            <td><a href="/Department/Department_Employee_SalesMove/@employee.Id" class="btn btn-warning">Sales Move</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="/Employee/Add_Employee/" class="btn btn-info">Add Employee</a>
+
+

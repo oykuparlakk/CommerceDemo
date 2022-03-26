@@ -1,0 +1,51 @@
+﻿@using CommerceDemo.Models.Classes
+@model List<Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered" style="margin-top:20px">
+
+    <tr>
+        <th>Number</th>
+        <th>Product Name</th>
+        <th>Product Brand</th>
+        <th>Product Stock</th>
+        <th>Product Cost</th>
+        <th>Product Sales Price</th>
+        <th>Category</th>
+        <th>Product Image</th>
+        <th>Delete</th>
+        <th>Update</th>
+
+    </tr>
+    @{int a = 1; }
+    @foreach (var product in Model)
+    {
+
+        <tr>
+            <td>@a @{a++;} </td>
+            <td>@product.ProductName </td>
+            <td>@product.ProductBrand </td>
+            <td>@product.Stock </td>
+            <td>@product.Cost </td>
+            <td>@product.SalePrice </td>
+            <td>@product.Category.CategoryName </td>
+            <td>@product.ProductImage </td>
+            <td>
+                <a href="/Product/Delete_Product/@product.Id" class="btn btn-danger">Delete</a>
+            </td>
+
+            <td>
+                <a href="/Product/Update_Product/@product.Id" class="btn btn-success">Update</a>
+            </td>
+
+
+        </tr>
+    }
+
+</table>
+<a href="/Product/Add_Product/" class="btn btn-primary">New Product</a>
+

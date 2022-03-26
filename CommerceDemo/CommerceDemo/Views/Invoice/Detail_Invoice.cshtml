@@ -1,0 +1,41 @@
+﻿@using CommerceDemo.Models.Classes
+@model List<InvoiceItem>
+@{
+    ViewBag.Title = "Detail_Invoice";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Department Invoices</h2>
+<br />
+<h1 class="mt-4"></h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"></li>
+</ol>
+
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>Invoice Number</th>
+        <th>Invoice Explanation</th>
+        <th>Unit Price</th>
+        <th>Total Price</th>
+        <th>Amount</th>
+    </tr>
+
+    @{ int i = 1;}
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@i  @{i++;} </td>
+            <td>@x.Explanation</td>
+            <td>@x.UnitPrice</td>
+            <td>@x.TotalPrice</td>
+            <td>@x.Amount</td>
+            
+        </tr>
+    }
+
+</table>
+<a href="/Invoice/Add_InvoiceItems/" class="btn btn-default" style="background-color:greenyellow">Add new Invoice Item</a>
+

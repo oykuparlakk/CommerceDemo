@@ -1,0 +1,54 @@
+﻿@model IEnumerable<CommerceDemo.Models.Classes.ProductBrand>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Product Brand Table</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Brand</th>
+                    <th>Progress</th>
+                    <th style="width: 40px">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ int number = 0;}
+                @{ int percentage = 0;}
+                @{ int allBrands = 0;}
+
+                @foreach (var x in Model)
+                {
+                    allBrands += x.Total;
+
+                }
+
+                @foreach (var x in Model)
+                {
+                    percentage = (x.Total * 100) / allBrands;
+                    <tr>
+                        <td>@{number++;} @number</td>
+                        <td>@x.Brand</td>
+
+                        <td>
+
+                            <div class="progress progress-xs">
+                                <div class="progress-bar bg-success" style="width: @percentage%"></div>
+                            </div>
+
+                        </td>
+
+                        <td><span class="badge bg-danger">@x.Total</span></td>
+
+                    </tr>
+
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

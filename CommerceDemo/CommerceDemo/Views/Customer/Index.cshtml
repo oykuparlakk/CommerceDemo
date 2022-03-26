@@ -1,0 +1,43 @@
+﻿@using CommerceDemo.Models.Classes
+@model List<Customer> 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Customers</h2>
+<br />
+<h1 class="mt-4"></h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"><h4>Customers List</h4></li>
+</ol>
+
+<br />
+<table class="table table-striped">
+    <tr>
+        <th>Customer Number</th>
+        <th>Customer Name</th>
+        <th>Customer Address</th>
+        <th>Customer Email</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Detail</th>
+    </tr>
+
+    @{ var i = 1;}
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@i @{i++;} </td>
+            <td>@x.CustomerName </td>
+            <td>@x.Address </td>
+            <td>@x.Email </td>
+            <td><a href="/Customer/Delete_Customer/@x.Id" class="btn btn-danger ">Delete</a></td>
+            <td><a href="/Customer/Update_Customer/@x.Id" class="btn btn-success ">Update</a></td>
+            <td><a href="/Customer/Customer_SalesMove/@x.Id" class="btn btn-warning ">Products Received</a></td>
+        </tr>
+    }
+</table>
+<a href="/Customer/Add_Customer/" class="btn btn-info">Add New Customer</a>
+

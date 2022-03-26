@@ -1,0 +1,32 @@
+﻿@model CommerceDemo.Models.Classes.InvoiceItem
+@{
+    ViewBag.Title = "Add_InvoiceItems";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Add New Invoice Item</h2>
+<br />
+
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.Explanation)
+    @Html.TextBoxFor(x => x.Explanation, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Amount)
+    @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.UnitPrice)
+    @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TotalPrice)
+    @Html.TextBoxFor(x => x.TotalPrice, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(x => x.InvoiceId)      @*idnin otomatik gelmesi lazım*@
+    @Html.TextBoxFor(x => x.InvoiceId, new { @class = "form-control" })
+
+    <br />
+
+
+    <button class="btn btn-primary">Save</button>
+</form>
